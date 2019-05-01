@@ -31,12 +31,13 @@ public class Ile_Kartonow extends AppCompatActivity {
 
                 long ileKartonow = kalkukatorKartonow.policzIloscOpakowań(ileWorkow, ileWKartonie);
                 long wOstatnimKartonie = kalkukatorKartonow.policzIleWOstatnimKartonie(ileWorkow, ileWKartonie);
-                if (wOstatnimKartonie != 0)
-                    tekstWyswietlany.setText("wychodzi że to " + ileKartonow + " pełnych opakowań a w ostatnim " + wOstatnimKartonie);
+                //jesli miniej jest zrobione niz mieści pelen karton to wyswietl ilosc zrobiona
                 if (ileWorkow < ileWKartonie)
                     tekstWyswietlany.setText("jedno opakowanie " + ileWorkow);
+                if (wOstatnimKartonie > 0)
+                    tekstWyswietlany.setText("wychodzi że to " + ileKartonow + " pełnych opakowań a w ostatnim " + wOstatnimKartonie);
                 else
-                    tekstWyswietlany.setText("wychodzi że to " + ileKartonow + " pełnych opakowań");
+                    tekstWyswietlany.setText("wychodzi że to " + ileKartonow + " pełnych opakowań ");
 
             }
         });
