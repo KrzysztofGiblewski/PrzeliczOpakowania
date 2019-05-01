@@ -29,8 +29,9 @@ public class Ile_Kartonow extends AppCompatActivity {
                 int ileWorkow = Integer.valueOf(String.valueOf(editTextIleWorkow.getText()));
                 int ileWKartonie = Integer.valueOf(String.valueOf(editTextIleWKartonie.getText()));
 
-                double ileKartonow = kalkukatorKartonow.policzIloscOpakowań(ileWorkow, ileWKartonie);
-                tekstWyswietlany.setText("wychodzi że to " + ileKartonow + " pełnych opakowań ");
+                int ileKartonow = kalkukatorKartonow.policzIloscOpakowań(ileWorkow, ileWKartonie);
+                int wOstatnimKartonie = kalkukatorKartonow.policzIleWOstatnimKartonie(ileWorkow, ileWKartonie);
+                tekstWyswietlany.setText("wychodzi że to " + ileKartonow + " pełnych opakowań a w ostatnim " + wOstatnimKartonie);
             }
         });
 

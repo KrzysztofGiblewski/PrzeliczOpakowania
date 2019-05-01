@@ -15,8 +15,8 @@ public class KalkulatorKartonow {
         return iloscWKartonie;
     }
 
-    public int policzIleWOstatnimKartonie(int ileKartonow, int iloscWorkow) {
-        int iloscWOstatnimKartonie = iloscWorkow % ileKartonow;
+    public int policzIleWOstatnimKartonie(int iloscWorkow, int ileWOpakowaniu) {
+        int iloscWOstatnimKartonie = iloscWorkow % ileWOpakowaniu;
         return iloscWOstatnimKartonie;
     }
 
