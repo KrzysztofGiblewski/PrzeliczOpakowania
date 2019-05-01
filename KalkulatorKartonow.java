@@ -5,19 +5,19 @@ public class KalkulatorKartonow {
     private int ileKartonow;
     private int iloscWOpakowaniu;
 
-    public int policzIloscOpakowań(int iloscWorkow, int iloscWOpakowaniu) {
-        int ileOpakowań = iloscWorkow / iloscWOpakowaniu;
+    public long policzIloscOpakowań(long iloscWorkow, long iloscWOpakowaniu) {
+        long ileOpakowań = iloscWorkow / iloscWOpakowaniu;
         return ileOpakowań;
+    }
+
+    public long policzIleWOstatnimKartonie(long iloscWorkow, long ileWOpakowaniu) {
+        long iloscWOstatnimKartonie = iloscWorkow % ileWOpakowaniu;
+        return iloscWOstatnimKartonie;
     }
 
     public int policzIloscWorkowWKartonie(int ileKartonow, int iloscWorkow) {
         int iloscWKartonie = iloscWorkow / ileKartonow;
         return iloscWKartonie;
-    }
-
-    public int policzIleWOstatnimKartonie(int iloscWorkow, int ileWOpakowaniu) {
-        int iloscWOstatnimKartonie = iloscWorkow % ileWOpakowaniu;
-        return iloscWOstatnimKartonie;
     }
 
     public int getIloscWorkow() {
