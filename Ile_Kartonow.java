@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Ile_Kartonow extends AppCompatActivity {
     private Button button1;
@@ -25,19 +26,27 @@ public class Ile_Kartonow extends AppCompatActivity {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                KalkulatorKartonow kalkukatorKartonow = new KalkulatorKartonow();
-                long ileWorkow = Integer.valueOf(String.valueOf(editTextIleWorkow.getText()));
-                long ileWKartonie = Integer.valueOf(String.valueOf(editTextIleWKartonie.getText()));
 
-                long ileKartonow = kalkukatorKartonow.policzIloscOpakowań(ileWorkow, ileWKartonie);
-                long wOstatnimKartonie = kalkukatorKartonow.policzIleWOstatnimKartonie(ileWorkow, ileWKartonie);
-                //jesli miniej jest zrobione niz mieści pelen karton to wyswietl ilosc zrobiona
-                if (ileWorkow < ileWKartonie)
-                    tekstWyswietlany.setText("jedno opakowanie " + ileWorkow);
-                if (wOstatnimKartonie > 0)
-                    tekstWyswietlany.setText("wychodzi że to " + ileKartonow + " pełnych opakowań a w ostatnim " + wOstatnimKartonie);
-                else
-                    tekstWyswietlany.setText("wychodzi że to " + ileKartonow + " pełnych opakowań ");
+                KalkulatorKartonow kalkukatorKartonow = new KalkulatorKartonow();
+                String strIleWorkow = String.valueOf(editTextIleWorkow.getText());
+                String strIleWKartonioe = String.valueOf(editTextIleWKartonie.getText());
+                if (strIleWorkow.length() < 9)
+                    if (strIleWKartonioe.length() < 9) {
+                        long ileWorkow = Integer.valueOf(strIleWorkow);
+                        long ileWKartonie = Integer.valueOf(strIleWKartonioe);
+                        long ileKartonow = kalkukatorKartonow.policzIloscOpakowań(ileWorkow, ileWKartonie);
+                        long wOstatnimKartonie = kalkukatorKartonow.policzIleWOstatnimKartonie(ileWorkow, ileWKartonie);
+                        //jesli miniej jest zrobione niz mieści pelen karton to wyswietl ilosc zrobiona
+                        if (ileWorkow < ileWKartonie)
+                            tekstWyswietlany.setText("jedno opakowanie " + ileWorkow);
+                        if (wOstatnimKartonie > 0)
+                            tekstWyswietlany.setText("wychodzi że to " + ileKartonow + " pełnych opakowań a w ostatnim " + wOstatnimKartonie);
+                        else
+                            tekstWyswietlany.setText("wychodzi że to " + ileKartonow + " pełnych opakowań ");
+                    } else
+                        Toast.makeText(getApplicationContext(), "wpisz mniejszą liczbę", Toast.LENGTH_SHORT).show();
+
+
 
             }
         });
